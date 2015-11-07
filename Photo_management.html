@@ -1,0 +1,139 @@
+﻿<!DOCTYPE html>
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>图片</title>
+    <link rel="stylesheet" href="css/add.css" type="text/css" media="screen">
+    <link rel="stylesheet" href="css/style.css" type="text/css">
+    <link href="css/bootstrap.min.css" rel="stylesheet" type="text/css">
+	<link href="css/bootstrap-theme.min.css" rel="stylesheet" type="text/css">
+
+	<script type="text/javascript" src="js/jquery.js"></script>
+	<script type="text/javascript" src="js/bootstrap.min.js"></script>
+	<script type="text/javascript">
+	$(function() {
+
+        	var btn = $('#uploadBtn');
+	new AjaxUpload(btn, {
+	action:url,
+	name:'files',
+	multiple: true,
+	responseType: 'json',
+	onSubmit : function(file, ext) {
+	if (ext && /^(JPG|PNG|JPEG|GIF|BMP|jpg|pne|jpeg|gif|bmp)$/.test(ext)){
+	this.setData({
+	'info':'文件类型正确'
+	});
+	} else {
+	sys_msg('文件类型错误', '只能上传类型为：JPG|PNG|JPEG|GIF|BMP 的图片文件!');
+	return false;               
+	}
+	$('#uploads_span').html(sys_loading_img);
+	this.disable();
+	},
+	onComplete: function(files, response){
+	if ('error' == response.result)
+	sys_msg('失败', '上传文件失败，请检查文件名是否正确!');
+	else if ('file_type_error' == response.result)
+	sys_msg('文件类型错误', '只能上传类型为：JGP、GIF、BMP、ICO、PNG的文件!');
+	else {
+	var tr = $('#' + color);// 找到对应的TR
+	$.each(response.list,function(e) {
+	tr.find('img.img').attr({'src':'upload/commodity/'+ this.uuid +'.' + this.ext}).end()
+ 	 .find('input.img-path').attr({'value': this.uuid +'.' + this.ext}).end();
+	return false;//这里只取第一张
+	});
+	this.enable();
+	}  
+	}
+	});)
+	</script>
+</head>
+
+<body style="background-color: #ffffff">
+
+    <div class="div_from_aoto" style="width: 900px;">
+
+		<div class="col-md-12 column">
+
+		
+
+
+		<div class="panel-group" id="panel-969293">
+						<div class="panel panel-default">
+							<div class="panel-heading">
+								 <a class="panel-title collapsed" data-toggle="collapse" data-parent="#panel-969293" href="#panel-element-346688">banner图片</a>
+							</div>
+							<div id="panel-element-346688" class="panel-collapse collapse in">
+								<div class="panel-body">
+									<form name="picture1">
+										<img src="{{picture1.img}}">
+										<button class="btn btn-success" id="uploadBtn">更新图片</button>
+									</form>
+									<form name="picture2">
+										<img src="{{picture2.img}}">
+										<button class="btn btn-success" id="uploadBtn">更新图片</button>
+									</form>
+									<form name="picture3">
+										<img src="{{picture3.img}}">
+										<button class="btn btn-success" id="uploadBtn">更新图片</button>
+									</form>
+									<form name="picture4">
+										<img src="{{picture4.img}}">
+										<button class="btn btn-success" id="uploadBtn">更新图片</button>
+									</form>
+									<form name="picture5">
+										<img src="{{picture5.img}}">
+										<button class="btn btn-success" id="uploadBtn">更新图片</button>
+									</form>
+									<form name="picture6">
+										<img src="{{picture6.img}}">
+										<button class="btn btn-success" id="uploadBtn">更新图片</button>
+									</form>
+								</div>
+							</div>
+						</div>
+						<div class="panel panel-default">
+							<div class="panel-heading">
+								 <a class="panel-title collapsed" data-toggle="collapse" data-parent="#panel-969293" href="#panel-element-901436">相册</a>
+							</div>
+							<div id="panel-element-901436" class="panel-collapse collapse">
+								<div class="panel-body">
+									<form name="photo_action">
+										<table class="table table-hover table-condensed table-bordered">
+											<tr>
+												<th>照片</th>
+												<th>介绍</th>
+												<th>操作</th>
+											</tr>
+										{% for photo in photo_list %}
+											<tr>
+												<td><img src="{{photo.img}}"></th>
+												<td><img src="{{photo.introduction}}"></th>
+												<td><button class="btn btn-success">删除</button>&nbsp;&nbsp;<button class="btn btn-success">修改</button></th>
+											</tr>
+										{% endfor %}
+										</table>
+									</form>
+									<form name="newphoto">
+										<button class="btn btn-success" id="uploadBtn">上传照片</button>
+									</form> 
+								</div>
+							</div>
+						</div>
+		</div>
+
+
+
+
+
+
+
+
+		</div>
+
+    </div>
+</body>
+
+</html>
+

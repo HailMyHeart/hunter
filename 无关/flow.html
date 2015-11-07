@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>ystep流程、步骤插件 —— Powerd By YangYuan</title>
+    <meta name="keywords" content="ystep,jQuery流程、步骤插件"/>
+    <meta name="description" content="ystep,jQuery流程、步骤插件"/>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- 引入ystep样式 -->
+    <link rel="stylesheet" href="css/ystep.css">
+  </head>
+  <body>
+  
+  <br><br><br><br><br>
+  <!-- ystep容器 -->
+  <div class="ystep1"></div>
+  
+  <br><br><br><br><br>
+  
+  <div class="ystep2"></div>
+  
+  <br><br><br><br><br>
+  
+  <div class="ystep3"></div>
+  
+  <br><br><br><br><br>
+  
+  <div class="ystep4"></div>
+
+  <button type="button">next step</button>
+  <!-- 引入jquery -->
+  <script src="js/jquery.min.js"></script>
+  <!-- 引入ystep插件 -->
+  <script src="js/ystep.js"></script>
+  <script>
+    //根据jQuery选择器找到需要加载ystep的容器
+    //loadStep 方法可以初始化ystep
+
+    
+    $(".ystep4").loadStep({
+      size: "large",
+      color: "blue",
+      steps: [{
+        title: "喵喵",
+        content: "我不会说我不是猫~"+"</br>"+"负责人：一只狗负责人：一只狗负责人：一只狗负责人：一只狗负责人：一只狗负责人：一只狗负责人：一只狗负责人：一只狗负责人：一只狗负责人：一只狗负责人：一只狗。",
+        pricipal:"某只狗"
+      },{
+        title: "汪汪",
+        content: "乐捐平台工作人员审核项目",
+        pricipal:"某只狗"
+      },{
+        title: "叽叽",
+        content: "乐捐项目上线接受公众募款",
+        pricipal:"某只狗"
+      },{
+        title: "咩咩",
+        content: "项目执行者线下开展救护行动",
+        pricipal:"某只狗"
+      },{
+        title: "动物开会？",
+        content: "项目执行者公示善款使用报告",
+        pricipal: "某只狗"
+      },{
+        title: "前面全是sb",
+        content: "项目执行者公示善款使用报告",
+        pricipal:  "某只啦啦啦啦啦啦啦啦啦啊啦啦啦啦啦啦啦狗"
+      }]
+    });
+    
+    $(".ystep1").setStep(2);
+    $("button").click(function(){$(".ystep1").nextStep();});
+
+
+
+  </script>
+  </body>
+</html>

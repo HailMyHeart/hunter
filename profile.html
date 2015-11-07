@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>个人中心</title>
+    <script src="js/lib/jquery.js"></script>
+    <script src="js/dist/jquery.validate.js"></script>
+    <link rel="stylesheet" type="text/css" href="css/screen.css">
+    
+    <link rel="stylesheet" href="css/add.css" type="text/css" media="screen">
+    <link rel="stylesheet" href="css/style.css" type="text/css">
+    <link href="css/bootstrap.min.css" rel="stylesheet" type="text/css">
+  <link href="css/bootstrap-theme.min.css" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="css/ystep.css">
+    <script src="js/ystep.js"></script>
+  <script src="js/jquery.min.js"></script>
+  <script type="text/javascript" src="js/bootstrap.min.js"></script>
+
+    <script type="text/javascript">
+
+    $().ready(function() {
+    $("#update_pwd").validate({
+    rules: {
+
+       new_password: {
+        required: true,
+        minlength: 6
+       },
+       new_password_confirm: {
+        required: true,
+        minlength: 6,
+        equalTo: "#new_password"
+       }
+      },
+     messages:
+     {
+        new_password: {
+        required: "请填写密码",
+        minlength: "密码长度不应小于6",
+       },
+       new_password_confirm: {
+        required: "请确认密码",
+        minlength: "密码长度不应小于6",
+        equalTo: "两次输入密码不相符"
+       },
+
+
+     },
+
+    });});
+    </script>
+</head>
+
+<body style="background-color: #ffffff">
+<div class="col-md-12">     
+    <div class="div_from_aoto" style="width: 900px;">
+    <p>姓名：</p>
+    <p>{{User.first_name}} {{User.last_name}}</p>
+    <p>用户名：</p>
+    <p>{{User.userName}}</p>
+    <p>Email</p>
+    <p>{{User.email}}</p>
+    <p>手机号：</p>
+    <p>{{User.cellphone}}</p>
+    <p>QQ：</p>
+    <p>{{User.qq}}</p>
+    <p>学院：</p>
+    <p>{{User.institution}}</p>
+    <p>所属部门：</p>
+    <p>{{User.department}}</p>
+                <form class="form-horizontal templatemo-create-account templatemo-container" role="form" action="{%url updatePassword%}" method="post" id="update_pwd">
+                <div class="form-inner">
+
+        
+
+                    <div class="form-group">
+                      <div class="col-md-6">
+                        <label for="password" class="control-label">新密码</label>
+                        <input type="password" class="form-control" id="new_password" name="new_password" placeholder="">
+                      </div>
+                      <div class="col-md-6">
+                        <label for="password_confirm" class="control-label">再次输入密码</label>
+                        <input type="password" class="form-control" id="new_password_confirm" name="new_password_confirm" placeholder="">
+                      </div>
+                    </div>
+                    <div class="form-group">
+                      <div class="col-md-12">
+                        <input type="submit" value="更改密码" class="btn btn-info">
+        
+                      </div>
+                    </div>  
+                </div>                      
+              </form>             
+    </div>
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,35 @@
+  .topbody{
+      width:900px;
+      margin: 0 auto;
+  }
+  .topbar{
+     width:100%;
+     background-color: #517979;
+     display: inline-block;
+     margin: 0px;
+     padding:0px;
+ }
+ 
+ .topbar li{
+     float:right;
+          display: block;
+ }
+ .toplist{
+     display: inline-block;
+     list-style-type:none;
+     margin-bottom: initial;
+     float: right;
+ }
+ .toplist a{
+     color:#FFF;
+     text-decoration: none;
+ }
+.toplist a{
+     display:block;
+     
+
+     float: right;
+ }
+ .toplist a{
+     padding:10px;
+ }

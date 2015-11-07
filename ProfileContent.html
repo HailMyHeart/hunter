@@ -1,0 +1,211 @@
+﻿<!DOCTYPE HTML>
+<html>
+	<head>
+		<title>Profile</title>
+		<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+		<meta name="description" content="" />
+		<meta name="keywords" content="" />
+	    <link href="css/bootstrap.min.css" rel="stylesheet" type="text/css">
+		<link href="css/bootstrap-theme.min.css" rel="stylesheet" type="text/css">
+		<link href='http://fonts.googleapis.com/css?family=Arimo:400,700' rel='stylesheet' type='text/css'>
+		<!--[if lte IE 8]><script src="js/html5shiv.js"></script><![endif]-->
+		<script src="js/skel.min.js"></script>
+		<script src="js/skel-panels.min.js"></script>
+		<script src="js/init.js"></script>
+		<script type="text/javascript" src="js/bootstrap.min.js"></script>
+		<noscript>
+			<link rel="stylesheet" href="css/skel-noscript.css" />
+			<link rel="stylesheet" href="css/style.css" />
+			<link rel="stylesheet" href="css/style-desktop.css" />
+		</noscript>
+
+
+
+
+
+		<!--[if lte IE 8]><link rel="stylesheet" href="css/ie/v8.css" /><![endif]-->
+		<!--[if lte IE 9]><link rel="stylesheet" href="css/ie/v9.css" /><![endif]-->
+	</head>
+
+
+		<!-- Header -->
+		<div id="header">
+			<div class="container"> 
+				
+				<!-- Logo -->
+				<div id="logo">
+					<h1><a href="#">Students' Association</a></h1>
+					<span>This is a banner.</span>
+				</div>
+				
+				<!-- Nav -->
+				<nav id="nav">
+					<ul>
+						<li><a href="Homepage.html">Homepage</a></li>
+						<li class="active"><a href="ProfileContent.html">profile</a></li>
+						<li><a href="Photos.html">Photos</a></li>
+						<li><a href="Activities.html">Activities</a></li>
+						<li><a href="Bulletin.html">Bulletin</a></li>
+						<li><a href="News.html">News</a></li>
+					</ul>
+				</nav>
+			</div>
+		</div>
+
+			<div class="carousel slide" id="carousel-177252">
+				<ol class="carousel-indicators">
+					<li data-slide-to="0" data-target="#carousel-177252">
+					</li>
+					<li data-slide-to="1" data-target="#carousel-177252">
+					</li>
+					<li data-slide-to="2" data-target="#carousel-177252" class="active">
+					</li>
+				</ol>
+				<div class="carousel-inner">
+				{%for img in img_list%}
+					<div class="item">
+						<img alt="" src="{{img.scr}}" />
+						<div class="carousel-caption">
+							<h4>
+								{{img.title}}
+							</h4>
+							<p>
+								{{img.description}}
+							</p>
+						</div>
+					</div>
+					{%endfor%}
+				
+				</div> <a class="left carousel-control" href="#carousel-177252" data-slide="prev"><span class="glyphicon glyphicon-chevron-left"></span></a> <a class="right carousel-control" href="#carousel-177252" data-slide="next"><span class="glyphicon glyphicon-chevron-right"></span></a>
+			</div>
+
+	
+		
+
+		<!-- Main -->
+		<div id="main">
+			<div class="container">
+
+				<div class="row"> 
+					
+					<!-- Content -->
+					<div id="content" class="8u skel-cell-important">
+						<section>
+							<header>
+								<h2>Welcome to {{communityName}}!</h2>
+								<span class="byline">{{coummunity_title}}</span>
+							</header>
+							<a href="#" class="image full"><img src="{{introductionimg.img}}" alt="" /></a>
+							<p>{{coummuntity_introduction}}</p>
+						</section>
+					</div>
+					
+					<!-- Sidebar -->
+					<div id="sidebar" class="4u">
+						<section>
+							<header>
+								<h2>News</h2>
+							</header>
+							<ul class="style">
+								{% for nws in news_list %}
+								<li>
+									<a href="nws/{{nws.id}}"><p class="posted">{{nws.title}}  |  ({{nws.date}} )</p></a>
+									<a href="nws/{{nws.id}}"><img src="{{nws.img}}" alt="" /></a>
+									<p class="text">{{nws.lead}}</p>
+								</li>
+								{% endfor %}
+							</ul>
+						</section>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<!-- Footer -->
+		<div id="featured">
+			<div class="container">
+				<div class="row">
+					<div class="4u">
+						<h2>BULLETIN</h2>
+						<a href="/bulletindetail/{{news.id}}" class="image full"><img src="{{newsimg.img}}" alt="" /></a>
+						<a href="/bulletindetail/{{news.id}}"><h4>{{bulletin.title}}</h4></a>
+						<p>{{bulletin.introduction}}</p><br>
+						<ul>
+						{% for bul in bulletin_list %}
+							<li><a href="/bulletindetail/{{bul.id}}"><strong>{{bul.title}}</strong></a></li>
+						{% endfor %}
+						</ul>
+						<p><a href="/bulletin/" class="button">More Details</a></p>
+					</div>
+					<div class="4u">
+						<h2>ACTIVITIES</h2>
+						<a href="/activitydetail/{{activity.id}}" class="image full"><img src="{{activityimg.img}}" alt="" /></a>
+						<a href="/activitydetail/{{activity.id}}"><h4>{{activity.title}}</h4></a>
+						<p>{{activity.introduction}}</p><br>
+						<ul>
+						{% for acty in acty_list %}
+							<li><a href="/activitydetail/{{acty.id}}"><strong>{{acty.title}}</strong></a></li>
+						{% endfor %}
+						</ul>
+						<p><a href="/activity/" class="button">More Details</a></p>
+					</div>
+					<div class="4u">
+						<h2>PHOTOS</h2>
+						<a href="/photodetail/{{photo.id}}" class="image full"><img src="{{photoimg.img}}" alt="" /></a>
+						<a href="/photodetail/{{photo.id}}"><h4>{{photo.title}}</h4></a>
+						<p>{{photo.introduction}}</p><br>
+						<ul>
+						{% for phto in photo_list %}
+							<li><a href="/photodetail/{{phto.id}}"><strong>{{phto.title}}</strong></a></li>
+						{% endfor %}
+						</ul>
+						<p><a href="/photo/" class="button">More Details</a></p>
+					</div>
+				</div>
+			</div>
+		</div>
+
+
+		<!-- Footer -->
+		<div id="footer">
+			<div class="container">
+				<div class="row">
+					<div class="4u">
+						<section>
+							<h2>JOIN US</h2>
+							<ul class="default">
+								<li><a href="/signup/">Click to fill in your information</a></li>
+							</ul>
+						</section>
+					</div>
+					<div class="4u">
+						<section>
+							<h2>PROVIDE SPONSORSHIP</h2>
+							<ul class="default">
+								<li><a href="mailto:18724597941@163.com">Click to contact us</a></li>
+							</ul>
+						</section>
+					</div>
+					<div class="4u">
+						<section>
+							<h2>CONTACT US</h2>
+							<ul class="default">
+								<li><a href="mailto:18724597941@163.com">Click to send mail to us</a></li>
+							</ul>
+						</section>
+					</div>
+				</div>
+			</div>
+		</div>
+
+
+		<!-- Copyright -->
+		<div id="copyright">
+			<div class="container">
+				Copyright &copy; 2015.Hunters All rights reserved.<a target="_blank" href="http://sc.chinaz.com/moban/">团队日志</a>
+			</div>
+		</div>
+		
+<div style="display:none"><script src='http://v7.cnzz.com/stat.php?id=155540&web_id=155540' language='JavaScript' charset='gb2312'></script></div>
+</body>
+</html>

@@ -1,0 +1,97 @@
+﻿<!DOCTYPE html>
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>导航栏</title>
+    <link href="css/bootstrap.min.css" rel="stylesheet" type="text/css">
+    <link href="css/bootstrap-theme.min.css" rel="stylesheet" type="text/css">
+    <script type="text/javascript" src="js/jquery.js"></script>
+    <script type="text/javascript" src="http://cdn.alifav.com/bootstrapmarkdown/bootstrap-markdown.js"></script>
+    <script type="text/javascript" src="http://cdn.alifav.com/bootstrapmarkdown/locale/bootstrap-markdown.zh.js"></script>
+    <link rel="stylesheet" type="text/css" href="http://cdn.alifav.com/bootstrapmarkdown/bootstrap-markdown.min.css" media="screen" />
+    <SCRIPT mce_src="http://html5shim.googlecode.com/svn/trunk/html5.js"></SCRIPT>
+    <script type="text/javascript" src="http://cdn.alifav.com/bootstrapmarkdown/markdown.js"></script>
+    <script type="text/javascript" src="http://cdn.alifav.com/bootstrapmarkdown/to-markdown.js"></script>
+    <script type="text/javascript" src="js/bootstrap.min.js"></script>
+    <script type="text/javascript">
+    $(function() {
+
+        var $range = $("input[type='range']"); //滑块
+
+        var $result = $("output[name='result']"); //显示数字的output
+
+
+        //当$range滑动时,将值传给$result，显示出来
+        $range.change(function() {
+            $result.val($range.val());
+            $("#iFormShow").empty();
+            for (i = 0; i<$range.val(); i++)
+            {
+              $("#iFormShow").append('<div class="form-group"><label>Step '+i+':</label><label>标题</label><input name="step_title'+i+'" type="text" class="form-control"  placeholder=""></div><div class="form-group"><label>内容</label><textarea  name="step_content'+i+'"class="form-control" rows="3"></textarea></div><div class="form-group"><label>截止日期</label><input type="date" name="step_date'+i+'"></div>');
+            }
+
+        });
+
+        //当$range停止滑动时，将值赋给本地存储localStorage.rangeValue
+        $range.mouseup(function() {
+            $result.val($range.val());
+
+            
+        });
+        $("#AC_contend").markdown({
+          language:'zh',
+          onShow: function(e){
+            //
+          },
+          onPreview: function(e) {
+            var previewContent;
+            if (e.isDirty()) {
+              previewContent = e.parseContent();
+            } else {
+              previewContent = "Default content"
+            }
+            return previewContent;
+          },
+
+        });
+
+    })
+    </script>
+    <link rel="stylesheet" href="css/add.css" type="text/css" media="screen">
+    <link rel="stylesheet" href="css/bootstrap.css" type="text/css" media="screen">
+    <link rel="stylesheet" href="css/style.css" type="text/css">
+    <style type="text/css">
+    label {
+        display: block;
+    }
+    </style>
+</head>
+
+<body style="background-color: #ffffff">
+    <div class="div_from_aoto" style="width: 700px;">
+        <form>
+            <div class="form-group">
+                <label for="AC_title">导航栏1</label>
+                <input type="text" class="form-control" id="title" name="nav1" placeholder="请输入导航栏名称">
+            </div>
+            <div class="form-group">
+                <label for="AC_title">导航栏2</label>
+                <input type="text" class="form-control" id="title" name="nav2" placeholder="请输入导航栏名称">
+            </div>
+	    <div class="form-group">
+                <label for="AC_title">导航栏3</label>
+                <input type="text" class="form-control" id="title" name="nav3" placeholder="请输入导航栏名称">
+            </div>
+	    <div class="form-group">
+                <label for="AC_title">导航栏4</label>
+                <input type="text" class="form-control" id="title" name="nav4" placeholder="请输入导航栏名称">
+            </div>
+                
+                    <button class="btn btn-success">提交</button>
+      
+    
+        </form>
+    </div>
+</body>
+
+</html>

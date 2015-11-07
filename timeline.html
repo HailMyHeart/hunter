@@ -1,0 +1,34 @@
+﻿<!DOCTYPE html>
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>任务时间轴</title>
+    <link href="css/timeline.css" rel="stylesheet" type="text/css" />
+    <link rel="stylesheet" href="css/add.css" type="text/css" media="screen">
+    <link rel="stylesheet" href="css/bootstrap.css" type="text/css" media="screen">
+    <link rel="stylesheet" href="css/style.css" type="text/css">
+</head>
+
+<body style="background-color: #ffffff">
+    <div class="div_from_aoto" style="width: 700px;">
+        	<section id="cd-timeline" class="cd-container">
+        {%for mission in mission_list%}
+		<div class="cd-timeline-block">
+			<div class="cd-timeline-img cd-location">
+				<img src="images/cd-icon-location.svg" alt="Picture">
+			</div><!-- cd-timeline-img -->
+
+			<div class="cd-timeline-content">
+				<h2>{{mission.title}}</h2>
+				<p>{{mission.content}}</p>
+				<span class="cd-date">{{mission.date}}</span>
+			</div> <!-- cd-timeline-content -->
+		</div> <!-- cd-timeline-block -->
+		{%endfor%}
+	
+	</section> <!-- cd-timeline -->
+    </div>
+</body>
+
+</html>
+

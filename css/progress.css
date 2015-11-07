@@ -1,0 +1,76 @@
+.progress {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+}
+.progress li {
+  float: left;
+  margin: 0;
+  overflow: hidden;
+}
+.progress span {
+  display: block;
+  float: left;
+}
+.progress .step {
+  height: 2.2rem;
+  width: 10rem;
+  font: bold 1.4rem/2.2rem simsun, arial;
+  color: #999;
+  text-align: center;
+  background: #e3e3e3;
+}
+/* 箭头区域-非箭头部分 背景色 默认灰色 */
+.progress .triangle {
+  position: relative;
+  height: 2.2rem;
+  background: #e3e3e3;
+  width: 1.3rem;
+  overflow: hidden;
+}
+.progress em,
+.progress i {
+  display: block;
+  position: absolute;
+  top: -2px;
+  overflow: hidden;
+  width: 0;
+  height: 0;
+  border-width: 15px;
+  border-style: dashed solid dashed dashed;
+}
+/* em 箭头区域-箭头部分 头部边框 白色 */
+.progress em {
+  left: 0px;
+  border-color: transparent transparent transparent #FFF;
+}
+/* i 箭头区域-箭头部分 背景颜色 默认灰色*/
+.progress i {
+  left: -2px;
+  border-color: transparent transparent transparent #e3e3e3;
+}
+.progress .first {
+  width: 11rem;
+  border-radius: 5px 0 0 5px;
+}
+/* 最后一个的背景色透明 */
+.progress .last {
+  background: transparent;
+}
+/* 选中状态下 当前节点 左边箭头区域-非箭头部分 颜色蓝色（形成箭尾） */
+.progress .on .triangle-left {
+  background: #5fb3dc;
+}
+/* 选中状态下 当前节点 右边箭头区域-箭头部分 颜色蓝色 */
+.progress .on .triangle-right i {
+  border-color: transparent transparent transparent #5fb3dc;
+}
+.progress .on .step {
+  background: #5fb3dc;
+  color: #FFF;
+}
+/* 选中状态下 下一个兄弟节点 左边箭头区域-箭头部分 颜色蓝色 */
+.progress .on + li .triangle-left i {
+  border-color: transparent transparent transparent #5fb3dc;
+}

@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>成员信息管理</title>
+    <link href="css/bootstrap.min.css" rel="stylesheet" type="text/css">
+    <link href="css/bootstrap-theme.min.css" rel="stylesheet" type="text/css">
+    <script type="text/javascript" src="js/jquery.js"></script>
+
+
+    <script type="text/javascript" src="js/bootstrap.min.js"></script>
+
+    <link rel="stylesheet" href="css/add.css" type="text/css" media="screen">
+    <link rel="stylesheet" href="css/bootstrap.css" type="text/css" media="screen">
+    <link rel="stylesheet" href="css/style.css" type="text/css">
+    <style type="text/css">
+    label {
+        display: block;
+    }
+    </style>
+</head>
+
+<body style="background-color: #ffffff">
+    <div class="div_from_aoto" style="width: 900px;">
+
+            <div class="form-group">
+                            <div class="col-sm-8">
+                                <input type="search" class="form-control" name="author" placeholder="按类别查询" id="id_search_input" autofocus>
+                            </div>
+                            <div class="col-sm-2">
+                                <button class="btn btn-info" type="submit">查询</button>
+                            </div>
+                        </div>
+            <br><br><br>
+            <div class="col-md-12 column">
+            <table class="table table-hover table-condensed table-bordered">
+                <thead>
+                    <tr>
+                        <th>
+                            编号
+                        </th>
+                        <th>
+                            物资名
+                        </th>
+                        <th>
+                            来源
+                        </th>
+                        <th>
+                            数量
+                        </th>
+                        <th>
+                            单位
+                        </th>
+                        <th>
+                            使用程度
+                        </th>
+                        <th>
+                            类别
+                        </th>
+                        <th>
+                            操作
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for member in member_list %}
+                    <tr>
+                        <td>{{ forloop.counter }}</td>
+                        <td>{{ member.name }}</td>
+                        <td>{{ member.from }}</td>
+                        <td>{{ member.number }}</td>
+                        <td>{{ member.unit }}</td>
+                        <td>{{ member.condition }}</td>
+                        <td>{{ member.category }}</td>
+                        <td><button class="btn btn-info" type="submit">修改</button><button class="btn btn-info" type="submit">删除</button>
+                    </tr>
+                    {% empty %}
+                    <tr>
+                        <td>暂无</td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+            <div align="center">
+            <ul class="pagination">
+                <li>
+                     <a href="#">Prev</a>
+                </li>
+                {% for member_list in member_lists %}
+                <li>
+                     <a href="#">{{ forloop.counter }}</a>
+                </li>
+                {% endfor %}
+                <li>
+                     <a href="#">Next</a>
+                </li>
+            </ul>
+            </div>
+            </div>
+    </div>
+</body>
+
+</html>
